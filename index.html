@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>XraxzzSpamOtp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== LOGIN PAGE ===== -->
+<div id="loginPage" class="login-page">
+    <div class="login-box">
+        <div class="video-container">
+            <video id="loginVideo" playsinline muted>
+                <source src="https://files.catbox.moe/sd708s.mp4" type="video/mp4">
+            </video>
+            <div class="play-btn" id="videoPlayBtn"><i class="fa-regular fa-circle-play"></i></div>
+        </div>
+
+        <div class="robot-icon" id="robotIcon"><i class="fa-regular fa-robot"></i></div>
+        <div class="robot-status" id="robotStatus"><i class="fa-regular fa-spinner fa-spin"></i> Menyiapkan sistem...</div>
+
+        <div class="input-wrap">
+            <span class="prefix"><i class="fa-regular fa-user"></i></span>
+            <input type="text" id="loginUser" placeholder="Username">
+        </div>
+        <div class="input-wrap">
+            <span class="prefix"><i class="fa-regular fa-lock"></i></span>
+            <input type="password" id="loginPass" placeholder="Password">
+        </div>
+        <button class="btn-pixel-login" id="loginBtn">
+            <span class="spinner"></span>
+            <span class="btn-text"><i class="fa-regular fa-right-to-bracket"></i> Login</span>
+        </button>
+
+        <div class="saved-accounts">
+            <div class="label"><i class="fa-regular fa-clock"></i> Akun Yang Sudah Login</div>
+            <div id="savedList"></div>
+        </div>
+
+        <button class="skip-loading" id="skipLoadingBtn"><i class="fa-regular fa-forward"></i> Skip Loading..</button>
+    </div>
+</div>
+
+<!-- ===== BANNED OVERLAY ===== -->
+<div class="banned-overlay" id="bannedOverlay">
+    <div class="banned-box">
+        <div class="icon"><i class="fa-regular fa-circle-xmark"></i></div>
+        <h2>AKUN TERBANNED</h2>
+        <p>Akun Anda telah dibanned oleh admin.</p>
+        <button class="btn-unban" id="bannedLogoutBtn"><i class="fa-regular fa-right-from-bracket"></i> Logout</button>
+    </div>
+</div>
+
+<!-- ===== NOTIF OVERLAY ===== -->
+<div class="notif-overlay" id="notifOverlay">
+    <div class="notif-box">
+        <h2 id="notifTitle"><i class="fa-regular fa-bell"></i> Pemberitahuan</h2>
+        <p id="notifMessage">Pesan dari admin</p>
+        <button class="btn-notif-close" id="notifCloseBtn"><i class="fa-regular fa-check"></i> Tutup</button>
+    </div>
+</div>
+
+<!-- ===== POPUP SUKSES ===== -->
+<div class="popup-overlay" id="popupOverlay">
+    <div class="popup-box">
+        <div class="icon-big" id="popupIcon"><i class="fa-regular fa-circle-check"></i></div>
+        <h2 id="popupTitle">Berhasil!</h2>
+        <p id="popupMessage">Proses berhasil dilakukan.</p>
+        <button class="btn-close-popup" id="popupCloseBtn"><i class="fa-regular fa-check"></i> Oke</button>
+    </div>
+</div>
+
+<!-- ===== MODE UI POPUP ===== -->
+<div class="mode-popup" id="modePopup">
+    <div class="mode-box">
+        <h3><i class="fa-regular fa-palette"></i> Mode UI</h3>
+        <p>Pilih tampilan yang Anda inginkan</p>
+        <div class="mode-options">
+            <button class="mode-btn" id="modeRealBtn"><i class="fa-regular fa-cube"></i> Real 3D</button>
+            <button class="mode-btn active" id="modePixelBtn"><i class="fa-regular fa-cubes"></i> Pixel 2D</button>
+        </div>
+    </div>
+</div>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+    <button class="close-sidebar" id="sidebarClose"><i class="fa-regular fa-xmark"></i></button>
+    <h3><i class="fa-regular fa-cubes" style="color:var(--yellow);"></i> Menu</h3>
+    <button class="side-item" data-page="spam"><i class="fa-regular fa-bolt"></i> Spam OTP</button>
+    <button class="side-item" data-page="create"><i class="fa-regular fa-user-plus"></i> Buat Akun</button>
+    <button class="side-item" data-page="redeem"><i class="fa-regular fa-ticket"></i> Redeem Kode</button>
+    <button class="side-item" data-page="chat"><i class="fa-regular fa-comments"></i> Global Chat</button>
+    <button class="side-item" data-page="alight"><i class="fa-regular fa-video"></i> Alight Motion Premium</button>
+    <button class="side-item" data-page="generator"><i class="fa-regular fa-wand-magic-sparkles"></i> Generator Fake</button>
+    <hr style="margin:8px 0;border-color:var(--border);border-style:solid;">
+    <button class="side-item" id="modeUIBtn"><i class="fa-regular fa-palette"></i> Mode UI</button>
+    <button class="side-item" id="sidebarLogout"><i class="fa-regular fa-right-from-bracket"></i> Logout</button>
+
+    <!-- Background Section -->
+    <div class="bg-section">
+        <div class="bg-label"><i class="fa-regular fa-image"></i> Background</div>
+        <div class="bg-options">
+            <div class="bg-opt default" data-bg="default" title="Default"></div>
+            <div class="bg-opt" data-bg="https://files.catbox.moe/cfvqgg.jpg" style="background-image:url('https://files.catbox.moe/cfvqgg.jpg');" title="BG 1"></div>
+            <div class="bg-opt" data-bg="https://files.catbox.moe/4retuc.jpeg" style="background-image:url('https://files.catbox.moe/4retuc.jpeg');" title="BG 2"></div>
+            <div class="bg-opt" data-bg="https://files.catbox.moe/pkqsjl.jpeg" style="background-image:url('https://files.catbox.moe/pkqsjl.jpeg');" title="BG 3"></div>
+            <div class="bg-opt" data-bg="https://files.catbox.moe/xinpf1.jpg" style="background-image:url('https://files.catbox.moe/xinpf1.jpg');" title="BG 4"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="logo"><i class="fa-solid fa-bolt"></i> XraxzzSpamOtp</div>
+    <div class="sub"><i class="fa-regular fa-clock"></i> XraxzzSpamOtp</div>
+    <div class="badge"><i class="fa-regular fa-circle-check"></i> XraxzzSpamOtp</div>
+
+    <div class="top-bar">
+        <div class="user-info">
+            <i class="fa-regular fa-user"></i>
+            <span id="usernameDisplay">Guest</span>
+            <span class="role-bubble" id="roleBubble">GUEST</span>
+        </div>
+        <div class="limit-box">
+            <i class="fa-regular fa-clock"></i> Sisa Limit: <span id="limitDisplay">0</span>
+        </div>
+        <div class="right-buttons">
+            <button class="music-toggle" id="musicToggle"><i class="fa-regular fa-music"></i></button>
+            <button class="color-toggle" id="colorToggle"><i class="fa-regular fa-palette"></i></button>
+            <div class="color-menu" id="colorMenu">
+                <div class="color-opt yellow" data-color="yellow" style="background:#fbbf24;"></div>
+                <div class="color-opt red" data-color="red" style="background:#ef4444;"></div>
+                <div class="color-opt green" data-color="green" style="background:#10b981;"></div>
+                <div class="color-opt blue" data-color="blue" style="background:#3b82f6;"></div>
+                <div class="color-opt orange" data-color="orange" style="background:#f59e0b;"></div>
+                <div class="color-opt gray" data-color="gray" style="background:#94a3b8;"></div>
+                <div class="color-opt rainbow" data-color="rainbow" style="background:linear-gradient(135deg,#ef4444,#f59e0b,#fbbf24,#10b981,#3b82f6,#8b5cf6);"></div>
+            </div>
+            <button class="theme-toggle" id="themeToggle"><i class="fa-regular fa-moon"></i></button>
+            <button class="menu-toggle" id="menuToggle"><i class="fa-regular fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<div class="container" id="mainContainer">
+    <!-- Pages akan di-load via JS -->
+    <div id="pageContainer"></div>
+    <footer class="footer">
+        <i class="fa-regular fa-copyright"></i> XraxzzSpamOtp
+    </footer>
+</div>
+
+<!-- ===== FIREBASE ===== -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
